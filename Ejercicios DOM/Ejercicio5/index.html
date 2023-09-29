@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>CALCULADORA</h1>
+        <div class="calculadora">
+            <input type="text" id="pantalla" readonly>
+            <table>
+                <tr>
+                    <td><button onclick="agregarDigito('1')">1</button></td>
+                    <td><button onclick="agregarDigito('2')">2</button></td>
+                    <td><button onclick="agregarDigito('3')">3</button></td>
+                    <td><button onclick="borrar()">C</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="agregarDigito('4')">4</button></td>
+                    <td><button onclick="agregarDigito('5')">5</button></td>
+                    <td><button onclick="agregarDigito('6')">6</button></td>
+                    <td><button onclick="operacion('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="agregarDigito('7')">7</button></td>
+                    <td><button onclick="agregarDigito('8')">8</button></td>
+                    <td><button onclick="agregarDigito('9')">9</button></td>
+                    <td><button onclick="operacion('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="agregarDigito('0')">0</button></td>
+                    <td><button onclick="operacion('/')">/</button></td>
+                    <td><button onclick="igual()">=</button></td>
+                    <td><button onclick="operacion('*')">*</button></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <script src="tu_archivo_de_js.js"></script>
+</body>
+</html>

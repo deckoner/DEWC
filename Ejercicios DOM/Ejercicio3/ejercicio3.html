@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="css.css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 13 - DOM b�sico y atributos XHTML</title>
+
+<script type="text/javascript">
+function anade() {
+	let lista = document.getElementById("lista");
+	let li = document.createElement("li");
+	li.textContent = "Holi soy un nuevo elemento";
+	lista.appendChild(li)
+}
+</script>
+</head>
+
+<body>
+
+<ul id="lista">
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetuer adipiscing elit</li>
+	<li>Sed mattis enim vitae orci</li>
+	<li>Phasellus libero</li>
+	<li>Maecenas nisl arcu</li>
+</ul>
+
+<input type="button" value="Añadir elemento" onclick="anade();">
+
+</body>
+</html>

@@ -3,7 +3,7 @@ window.onload = function() {
   screenInformacion();
   navigatorInformacion();
   documentInformacion();
-  locationInformacion()
+  locationInformacion();
 }
 
 function screenInformacion() {
