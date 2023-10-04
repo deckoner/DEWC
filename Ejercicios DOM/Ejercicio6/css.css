@@ -1,0 +1,12 @@
+body {
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  border: 0.4em solid black;
+  width: 50%;
+  margin-bottom: 1em;
+}

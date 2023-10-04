@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <script src="app.js"></script>
+    <title>Formulario con JavaScript</title>
+</head>
+<body>
+    <h1>Formulario con JavaScript</h1>
+    <form id="inscripcion">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="correo">Email</label>
+        <input type="text" id="correo" name="correo" required>
+
+        <label for="asunto">Asunto</label>
+        <select name="asunto" onchange="cambiarAsunto()">
+            <option value="0" selected="selected">Solicitar informacion</option>
+            <option value="1">apuntarse a un curso</option>
+            <option value="2">otro</option>          
+        </select>
+
+        <label for="curso" style="display: none; border: 0.1em solid red; width: 26%; padding-bottom: 0.2em;">Curso</label>
+        <input type="text" id="curso" name="curso" style="display: none;">
+
+        <label for="mensaje">Escribe un mensaje</label>
+        <textarea id="mensaje" name="mensaje"></textarea>
+        
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

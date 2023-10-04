@@ -21,6 +21,7 @@ input {
   height: 2.6em;
   background-color: #025159;
   border: 1px solid rgb(242, 135, 5);
+  color: rgb(242, 135, 5);
 }
 
 /* Estilos para el contenedor de la calculadora */
