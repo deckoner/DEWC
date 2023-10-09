@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(34, 42, 56);
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    color: rgb(138, 0, 139);
+    font-size: 5em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+h1 > span {
+    color: rgb(100, 149, 237);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 2em;
+    text-transform: uppercase; 
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    border: 0.7em solid rgb(74, 1, 130);
+    width: 8em;
+    height:8em;
+    margin: 0;
+}
+
+td:hover {
+    background-color: rgb(119, 74, 188);
+}
+
+td p {
+    margin: 0;
+    cursor: default;
+    text-align: center;
+    font-size: 7em;
+}
+
+.j1 {
+    color: rgb(138, 0, 139);
+}
+
+.j2 {
+    color: rgb(100, 149, 237);
+}
