@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <title>CRUD con Local Storage</title>
+    <meta charset="utf-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+      integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="jumbotron">Ejemplo de CRUD usando Local Storage</h1>
+
+          <table id="grid" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Trabajo</th>
+                <th>Edad</th>
+                <th style="width: 80px"></th>
+              </tr>
+              <tr>
+                <th>
+                  <input id="name" type="text" class="form-control" />
+                </th>
+                <th>
+                  <input id="job" type="text" class="form-control" />
+                </th>
+                <th>
+                  <input id="age" type="text" class="form-control" />
+                </th>
+                <th>
+                  <button id="btn-add" class="btn btn-default">Aceptar</button>
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Obtener la tabla y los campos de entrada de datos
+        let grid = document.getElementById("grid");
+        let nombreInput = document.getElementById("name");
+        let trabajoInput = document.getElementById("job");
+        let edadInput = document.getElementById("age");
+
+        // Obtener el botón de agregar
+        let addButton = document.getElementById("btn-add");
+
+        // Cargar datos desde el localStorage al inicio
+        let personas = JSON.parse(localStorage.getItem("personas")) || [];
+
+        // Función para agregar una persona a la lista
+        function addPerson(name, job, age) {
+          let person = {
+            name: name,
+            job: job,
+            age: age,
+          };
+
+          personas.push(person);
+
+          // Guardar en el localStorage
+          localStorage.setItem("personas", JSON.stringify(personas));
+
+          // Limpiar los campos de entrada
+          nombreInput.value = "";
+          trabajoInput.value = "";
+          edadInput.value = "";
+
+          // Actualizar la tabla
+          renderTable();
+        }
+
+        // Función para renderizar la tabla
+        function renderTable() {
+          let tbody = grid.querySelector("tbody");
+          tbody.innerHTML = "";
+
+          personas.forEach(function (person, index) {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${person.name}</td>
+                        <td>${person.job}</td>
+                        <td>${person.age}</td>
+                        <td>
+                            <button class="btn btn-danger btn-delete" data-index="${index}">Eliminar</button>
+                        </td>
+                    `;
+
+            tbody.appendChild(row);
+          });
+
+          // Agregar evento para eliminar personas
+          let deleteButtons = document.querySelectorAll(".btn-delete");
+          deleteButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+              let index = this.getAttribute("data-index");
+              personas.splice(index, 1);
+
+              // Guardar en el localStorage
+              localStorage.setItem("personas", JSON.stringify(personas));
+
+              // Actualizar la tabla
+              renderTable();
+            });
+          });
+        }
+
+        addButton.addEventListener("click", function () {
+          let name = nombreInput.value;
+          let job = trabajoInput.value;
+          let age = parseInt(edadInput.value);
+
+          if (name && job && !isNaN(age)) {
+            addPerson(name, job, age);
+          } else {
+            alert("Por favor, complete todos los campos correctamente.");
+          }
+        });
+
+        // Renderizar la tabla al cargar la página
+        renderTable();
+      });
+    </script>
+  </body>
+</html>
