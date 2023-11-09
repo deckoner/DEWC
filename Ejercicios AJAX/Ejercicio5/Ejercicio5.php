@@ -8,6 +8,7 @@ $numeroAleatorio = rand(0, 10);
 sleep($numeroAleatorio % 2);
 
 $disponible = ($numeroAleatorio % 2 == 0)? "si" : "no";
+$alternativasAutomaticas = array();
 if($disponible == "no") {
 	$alternativasAutomaticas[] = $login.$login;
 	$alternativasAutomaticas[] = "123".$login;
@@ -16,15 +17,11 @@ if($disponible == "no") {
 	$alternativasAutomaticas[] = $login."100";
 }
 
-if($disponible == "si") {
-	echo "{ \n".
-		"\t disponible: \"si\" \n".
-		"}";
+$response = array();
+$response['disponible'] = $disponible;
+if($disponible == "no") {
+	$response['alternativas'] = $alternativasAutomaticas;
 }
-else {
-	echo "{ \n".
-		"\t disponible: \"no\", \n".
-		"\t alternativas: [ \"".
-		join("\", \"", $alternativasAutomaticas)."\" ] \n".
-		"}";
-}?>
+
+echo json_encode($response);
+?>
