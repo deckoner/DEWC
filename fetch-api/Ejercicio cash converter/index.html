@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio cash converter</title>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <input type="number" id="amount">
+    <select id="from">
+        <option value="USD">USD | Dólar Americano</option>
+        <option value="AUD">AUD | Dólar Australiano</option>
+        <option value="CAD">CAD | Dólar Canadiense</option>
+        <option value="GBP">GBP | Libra Esterlina</option>
+        <option value="EUR">EUR | Euros</option>
+    </select>
+    <select id="to">
+        <option value="USD">USD | Dólar Americano</option>
+        <option value="AUD">AUD | Dólar Australiano</option>
+        <option value="CAD">CAD | Dólar Canadiense</option>
+        <option value="GBP">GBP | Libra Esterlina</option>
+        <option value="EUR">EUR | Euros</option>
+    </select>    
+    <button onclick="convert()">Convertir</button>
+    <p id="result"></p>
+</body>
+
+</html>
