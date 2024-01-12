@@ -23,7 +23,7 @@
 			window.onload = function () {
 				function cargarProvincias() {
 					let xhr = new XMLHttpRequest();
-					xhr.open("POST", "ruta_a_tu_script_php", true);
+					xhr.open("POST", "Ejercicio6.php", true);
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xhr.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
